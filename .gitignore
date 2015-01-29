@@ -1,0 +1,11 @@
+*.o
+*.lo
+*.a
+*.la
+*~
+.#*
+.swp
+build
+*TAG*
+*PATH
+*.lhco
