@@ -1,7 +1,7 @@
 CKinematics
 ===========
 
-Types and functions for kinematics variables in collider studies. If you want to use Haskell, see [hep-kinematics](https://github.com/cbpark/hep-kinematics).
+Types and functions for kinematics variables in collider studies. If you want to use Haskell, see [hep-utilities](https://github.com/cbpark/hep-utilities).
 
 ## Installation and usage
 
