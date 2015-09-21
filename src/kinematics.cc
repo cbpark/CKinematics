@@ -1,10 +1,11 @@
 #include "kinematics.h"
+#include <cmath>
 
-double pseudoRapidity(const double& x, const double& y, const double& z) {
+double pseudoRapidity(double x, double y, double z) {
     double ptot = std::sqrt(x * x + y * y + z * z);
-    double cos_theta = ptot == 0.0 ? 1.0 : z / ptot;
-    if (cos_theta * cos_theta < 1) {
-        return -0.5 * std::log((1.0 - cos_theta) / (1.0 + cos_theta));
+    double costheta = ptot == 0.0 ? 1.0 : z / ptot;
+    if (costheta * costheta < 1) {
+        return -0.5 * std::log((1.0 - costheta) / (1.0 + costheta));
     }
     if (z == 0) {
         return 0.0;

@@ -36,7 +36,7 @@ struct Pt {
     }
 };
 
-double pseudoRapidity(const double& x, const double& y, const double& z);
+double pseudoRapidity(double x, double y, double z);
 
 struct Eta {
     double value;
