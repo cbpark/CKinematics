@@ -33,9 +33,7 @@ struct Pt {
     double value;
     Pt() : value(0.0) {}
     explicit Pt(double v) : value(v) {}
-    Pt(const Px& px, const Py& py) {
-        value = std::sqrt(px.value * px.value + py.value * py.value);
-    }
+    Pt(const Px& px, const Py& py) { value = std::hypot(px.value, py.value); }
 };
 
 double pseudoRapidity(const Px& px, const Py& py, const Pz& pz);
@@ -73,9 +71,7 @@ struct FourMomentum {
     FourMomentum(const Energy& _e, const Px& _px, const Py& _py, const Pz& _pz)
         : px(_px), py(_py), pz(_pz), e(_e) {}
 
-    double pt() const {
-        return std::sqrt(px.value * px.value + py.value * py.value);
-    }
+    double pt() const { return std::hypot(px.value, py.value); }
     double phi() const { return PI + std::atan2(-py.value, -px.value); }
     double eta() const { return pseudoRapidity(px, py, pz); }
     double mass() const { return invariantMass(e, px, py, pz); }
@@ -94,9 +90,7 @@ struct ThreeMomentum {
     ThreeMomentum(const Px& _px, const Py& _py, const Pz& _pz)
         : px(_px), py(_py), pz(_pz) {}
 
-    double pt() const {
-        return std::sqrt(px.value * px.value + py.value * py.value);
-    }
+    double pt() const { return std::hypot(px.value, py.value); }
     double cosTheta() const {
         double ptot = std::sqrt(px.value * px.value + py.value * py.value +
                                 pz.value * pz.value);

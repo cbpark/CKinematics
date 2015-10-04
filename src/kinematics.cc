@@ -35,5 +35,5 @@ double deltaPhi(const FourMomentum& p1, const FourMomentum& p2) {
 double deltaR(const FourMomentum& p1, const FourMomentum& p2) {
     double deta = p1.eta() - p2.eta();
     double dphi = deltaPhi(p1, p2);
-    return std::sqrt(deta * deta + dphi * dphi);
+    return std::hypot(deta, dphi);
 }
